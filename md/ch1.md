@@ -162,7 +162,7 @@ Let's break it down step by step...
 - Browser optimizations:
   - **Caching**: Reusing resources from previous requests
   - **Lazy loading**: Loading resources only when needed
-https://cds.cern.ch/images/CERN-GE-9407011-31
+
 ## Recap: What Happens When You Enter a URL?
 ::: columns
 :::: column
