@@ -1,8 +1,8 @@
 ---
-title: "Case Study: Building a Simple One-Page Bookshop Gallery"
+title: "Tutorial: Building a Simple One-Page Bookshop Gallery"
 author: "Abdulla Ebrahim Subah"
 institute: "University of Bahrain"
-topic: "Case Study"
+topic: "Tutorial"
 fonttheme: "professionalfonts"
 fontsize: 10pt
 linkstyle: bold
@@ -16,7 +16,7 @@ header-includes:
 
 # Objective
 
-The goal of this case study is to create a simple one-page website for a fictional bookshop gallery. The website will showcase a few book titles with their cover images, descriptions, and prices. You will use **HTML** for structure and **CSS** for styling, with the help of the **Picocss** framework. This exercise allows beginners to explore various HTML tags, CSS properties, and the use of an external CSS framework.
+The goal of this tutorial is to create a simple one-page website for a fictional bookshop gallery. The website will showcase a few book titles with their cover images, descriptions, and prices. You will use **HTML** for structure and **CSS** for styling, with the help of the **Picocss** framework. This exercise allows beginners to explore various HTML tags, CSS properties, and the use of an external CSS framework.
 
 # Project Overview
 
@@ -98,7 +98,7 @@ The design will be responsive, meaning it should look good on both desktop and m
 <section class="book-gallery">
   <article class="book">
     <figure>
-      <img src="path-to-book-cover.jpg" alt="Book Cover">
+      <img src="https://placehold.co/300x400/orange/white?text=The\nBook" alt="Book Cover">
       <figcaption>
         <h2>Book Title</h2>
         <p>A short description of the book goes here.</p>
