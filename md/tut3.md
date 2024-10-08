@@ -224,7 +224,9 @@ foreach ($phone_numbers as $number) {
 Let's extract all URLs from a given text.
 
 ```php
-$text = "Visit https://www.example.com or http://subdomain.example.org. For more info, go to https://info.example.net/page?id=123.";
+$text = "Visit https://www.example.com or
+http://subdomain.example.org. For more info, go to 
+https://info.example.net/page?id=123.";
 
 $pattern = '/https?:\/\/[\w\-\.]+\.\w+(?:\/[\w\-\.\?=&]*)?/';
 
