@@ -165,7 +165,27 @@ preg_match_all($pattern, $text, $matches);
 echo "$: " . implode(', ', $matches[0]) . "<br><br>";
 ```
 
-## 8. Example: Validating an Email Address
+## 8. Capturing Groups:
+   Use parentheses () to create capturing groups:
+
+   ```php
+   $text = "John Doe";
+   $pattern = '/(\w+)\s(\w+)/';
+   preg_match($pattern, $text, $matches);
+   print_r($matches);
+   ```
+
+## 9. Modifiers:
+    Add modifiers after the closing delimiter:
+    - i: Case-insensitive matching
+    - m: Multi-line mode
+    - s: Dot matches newline
+
+    ```php
+    $pattern = '/pattern/i'; // Case-insensitive
+    ```
+
+## 10. Example: Validating an Email Address
 
    ```php
    $email = "user@example.com";
@@ -177,25 +197,19 @@ echo "$: " . implode(', ', $matches[0]) . "<br><br>";
    }
    ```
 
-## 9. Capturing Groups:
-   Use parentheses () to create capturing groups:
+To validate an email address in PHP, it's recommended to use the filter_var function instead of a regular expression. The filter_var function is more reliable and easier to use for this purpose.
 
-   ```php
-   $text = "John Doe";
-   $pattern = '/(\w+)\s(\w+)/';
-   preg_match($pattern, $text, $matches);
-   print_r($matches);
-   ```
+Here is an example using filter_var:
+```php
+<?php
+$email = "user@example.com";
+if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    echo "Valid email address";
+} else {
+    echo "Invalid email address";
+}
+```
 
-## 10. Modifiers:
-    Add modifiers after the closing delimiter:
-    - i: Case-insensitive matching
-    - m: Multi-line mode
-    - s: Dot matches newline
-
-    ```php
-    $pattern = '/pattern/i'; // Case-insensitive
-    ```
 
 ## 11. Matching Phone Numbers:
 Let's create a pattern to match phone numbers in the format (XXX) XXX-XXXX.
@@ -260,21 +274,7 @@ foreach ($passwords as $password) {
 }
 ```
 
-## 14. Replacing HTML Tags:
-Let's replace all HTML tags with their content.
-
-```php
-$html = "<p>This is a <strong>bold</strong> and <em>emphasized</em> text.</p>";
-
-$pattern = '/<[^>]+>(.*?)<\/[^>]+>/';
-
-$stripped = preg_replace($pattern, '$1', $html);
-
-echo "Original: $html\n";
-echo "Stripped: $stripped\n";
-```
-
-## 15. Extracting Dates from Text:
+## 14. Extracting Dates from Text:
 Extract dates in the format MM/DD/YYYY from a given text.
 
 ```php
@@ -289,7 +289,7 @@ echo "Found valid dates:\n";
 print_r($matches[0]);
 ```
 
-## 16. Splitting a String with Multiple Delimiters:
+## 15. Splitting a String with Multiple Delimiters:
 Split a string using multiple delimiters (comma, semicolon, or pipe).
 
 ```php
@@ -303,11 +303,11 @@ echo "Split result:\n";
 print_r($fruits);
 ```
 
-## 17. Matching and Replacing Email Domains:
+## 16. Matching and Replacing Email Domains:
 Replace all email addresses from "example.com" domain with "newdomain.com".
 
 ```php
-$text = "Contact john@example.com or sarah@example.com for support. 
+$text = "Contact example.com john@example.com or sarah@example.com for support. 
          For sales, email sales@otherdomain.com.";
 
 $pattern = '/(\w+@)example\.com\b/';
