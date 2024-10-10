@@ -1,7 +1,7 @@
-# PHP Regular Expression Tutorial
+# PHP Regular Expressions Tutorial
 
 ## 1. Basic Syntax:
-   In PHP, regular expressions are typically enclosed in delimiters. The most common delimiters are forward slashes '/' or curly braces '{}' or pips '|':
+   In PHP, regular expressions are typically enclosed in delimiters. The most common delimiters are forward slashes '/' or curly braces '{}' or pipes '|':
 
    ```php
    $pattern = '/pattern/';
@@ -307,7 +307,7 @@ print_r($fruits);
 Replace all email addresses from "example.com" domain with "newdomain.com".
 
 ```php
-$text = "Contact example.com john@example.com or sarah@example.com for support. 
+$text = "example.com Contact john@example.com or sarah@example.com for support. 
          For sales, email sales@otherdomain.com.";
 
 $pattern = '/(\w+@)example\.com\b/';
