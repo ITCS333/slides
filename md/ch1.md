@@ -38,8 +38,6 @@ header-includes:
 # A Brief History of the Internet
 ## Early Days
 
-::: columns
-:::: column
 - **1960s**: The birth of the Internet
   - ARPANET: The first packet-switching network
   - Funded by the U.S. Department of Defense
@@ -47,27 +45,19 @@ header-includes:
 - **1970s**: Development of TCP/IP
   - Transmission Control Protocol (TCP) and Internet Protocol (IP)
   - Foundation of modern networking
-::::
-:::: column
-![World First Router. By Steve Jurvetson. [(Source)](https://commons.wikimedia.org/w/index.php?curid=22504403)](img/ARPANET_first_router_2.jpg){height=50%}
-::::
-:::
+
+![World First Router. By Steve Jurvetson. [(Source)](https://commons.wikimedia.org/w/index.php?curid=22504403)](../img/ARPANET_first_router_2.jpg){height=50%}
 
 ## The Birth of the Web
 
-::: columns
-:::: column
 - **1989**: Tim Berners-Lee invents the World Wide Web
   - Proposed a system for sharing information using hypertext
   - Introduced three key technologies:
     1. **HTML**: Hypertext Markup Language (Document structure)
     2. **URI**: Uniform Resource Identifier (Addressing)
     3. **HTTP**: Hypertext Transfer Protocol (Communication)
-::::
-:::: column
-![Tim Berners-Lee, World Wide Web inventor. [(Source)](https://cds.cern.ch/images/CERN-GE-9407011-31)](img/tim.jpg){height=100%}
-::::
-:::
+
+![Tim Berners-Lee, World Wide Web inventor. [(Source)](https://cds.cern.ch/images/CERN-GE-9407011-31)](../img/tim.jpg){height=100%}
 
 ## The First Website
 - **1991**: The first website goes live at CERN
@@ -99,33 +89,24 @@ Let's break it down step by step...
   - **Path** (optional): `/about`, `/products`
   - etc.
 
-![URL Syntax. By Alhadis [(Source)](https://commons.wikimedia.org/w/index.php?curid=82827943)](img/URI_syntax_diagram.svg){width=100%}
+![URL Syntax. By Alhadis [(Source)](https://commons.wikimedia.org/w/index.php?curid=82827943)](../img/URI_syntax_diagram.svg){width=100%}
 
 ## Step 2: DNS Lookup
-::: columns
-:::: column
+
 - The browser needs to convert the domain name to an IP address
 - It queries the **DNS (Domain Name System)** to find the IP address
   - Example: `www.google.com` → `142.250.181.142`
 - If the browser has the IP cached, it skips this step
-::::
-:::: column
-![](img/dns.png){width=100%}
-::::
-:::
 
+![](../img/dns.png){width=100%}
 
 ## Step 3: Browser Initiates a TCP Connection
-::: columns
-:::: column
+
 - The browser establishes a **TCP connection** with the server
   - Uses the IP address from the DNS lookup
   - Connects on port **80** for HTTP or **443** for HTTPS
-::::
-:::: column
-![Data Flow in a Network. By Kbrose. [(Source)](https://commons.wikimedia.org/w/index.php?curid=1831900)](img/IP_stack_connections.svg){width=60%}
-::::
-:::
+
+![Data Flow in a Network. By Kbrose. [(Source)](https://commons.wikimedia.org/w/index.php?curid=1831900)](../img/IP_stack_connections.svg){width=60%}
 
 ## Step 4: Sending an HTTP Request
 - The browser sends an **HTTP request** (or **HTTPS** if secure)
@@ -164,8 +145,7 @@ Let's break it down step by step...
   - **Lazy loading**: Loading resources only when needed
 
 ## Recap: What Happens When You Enter a URL?
-::: columns
-:::: column
+
 1. URL is parsed
 2. DNS lookup to get IP
 3. TCP connection established
@@ -174,16 +154,10 @@ Let's break it down step by step...
 6. Response is sent back
 7. Browser renders the page
 8. Additional resources are fetched
-::::
-:::: column
-![Client Server Model. By David Vignoni. [(Source)](https://commons.wikimedia.org/w/index.php?curid=15782858)](img/Client-server-model.svg)
-::::
-:::
+
+![Client Server Model. By David Vignoni. [(Source)](https://commons.wikimedia.org/w/index.php?curid=15782858)](../img/Client-server-model.svg)
+
 # Final Thoughts
 - The web is constantly evolving, but the underlying mechanics still rely on the same principles
 - Understanding how the web works is the foundation for becoming a proficient web developer
 - In the next lecture, we’ll dive deeper into HTML, CSS, and JavaScript
-
-# Thank You!
-- Questions?
-- Next lecture: **Introduction to HTML**

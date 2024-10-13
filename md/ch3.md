@@ -94,7 +94,7 @@ This will make the paragraph blue with a font size of 14px.
 **Internal CSS** is defined within a `<style>` tag inside the `<head>` of an HTML document. It is used to style a single web page.
 
 ### HTML example
-\small
+
 ```html
 <head>
   <style>
@@ -107,7 +107,6 @@ This will make the paragraph blue with a font size of 14px.
   <p>This paragraph is styled internally.</p>
 </body>
 ```
-\normalsize
 
 In this example, the CSS is written directly inside the HTML file within the `<style>` tag.
 
@@ -116,7 +115,7 @@ In this example, the CSS is written directly inside the HTML file within the `<s
 **External CSS** is written in a separate `.css` file and linked to the HTML document with a `<link>` tag in the `<head>` section.
 
 ### HTML example:
-\small
+
 ```html
 <head>
   <link rel="stylesheet" type="text/css" href="styles.css">
@@ -126,16 +125,13 @@ In this example, the CSS is written directly inside the HTML file within the `<s
   <p>This is a paragraph styled using an external stylesheet.</p>
 </body>
 ```
-\normalsize
 
 In the external file (`styles.css`):
 
-\small
 ```css
 h1 { color: blue; text-align: center; }
 p { font-size: 16px; color: gray; }
 ```
-\normalsize
 
 This method allows you to apply the same styles to multiple HTML pages, making it easier to maintain consistency across a website.
 
@@ -255,8 +251,6 @@ This will select all `<p>` elements that are siblings of an `<h1>` element, not 
 
 # Example of Box Model
 
-::: columns
-:::: column
 ```css
 div {
   width: 200px;
@@ -265,12 +259,8 @@ div {
   margin: 20px;
 }
 ```
-::::
-:::: column
-![The various areas and edges of a typical CSS box. [Source](https://www.w3.org/TR/css-box-3/)](img/box.png)
-::::
-:::
 
+![The various areas and edges of a typical CSS box. [Source](https://www.w3.org/TR/css-box-3/)](../img/box.png)
 
 # Common CSS Attributes
 A non comprehensive list of CSS attributes with examples.
@@ -365,9 +355,7 @@ This aligns grid items to the center both horizontally and vertically in the gri
 In this example, if the screen width is less than or equal to 600px, the background color of the body will change to light blue.
 
 ## Media Queries Font Sizes Example
-::: columns
-:::: column
-\small
+
 ```css
 /* Small screens (mobile) */
 @media (max-width: 600px) {
@@ -383,8 +371,7 @@ In this example, if the screen width is less than or equal to 600px, the backgro
   }
 }
 ```
-::::
-:::: column
+
 ```css
 /* Large screens (desktop) */
 @media (min-width: 901px) {
@@ -393,11 +380,6 @@ In this example, if the screen width is less than or equal to 600px, the backgro
   }
 }
 ```
-\normalsize
-::::
-:::
-
-
 
 # SCSS
 
@@ -411,7 +393,7 @@ In this example, if the screen width is less than or equal to 600px, the backgro
 - **Mixins**: Reusable chunks of code that can be included in other selectors.
 
 ## Example of SCSS
-\small
+
 ```scss
 $primary-color: blue;
 
@@ -429,7 +411,6 @@ body {
   }
 }
 ```
-\normalsize
 
 # Conclusion
 
