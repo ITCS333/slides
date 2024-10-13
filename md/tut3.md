@@ -307,8 +307,7 @@ print_r($fruits);
 Replace all email addresses from "example.com" domain with "newdomain.com".
 
 ```php
-$text = "example.com Contact john@example.com or sarah@example.com for support. 
-         For sales, email sales@otherdomain.com.";
+$text = "example.com Contact john@example.com or sarah@example.com for support. For sales, email sales@otherdomain.com.";
 
 $pattern = '/(\w+@)example\.com\b/';
 $replacement = '$1newdomain.com';
