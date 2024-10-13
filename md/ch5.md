@@ -89,9 +89,7 @@ Wikipedia:
 PHP Language Manual: [https://www.php.net/manual/en/langref.php](https://www.php.net/manual/en/langref.php)
 
 ## PHP Variables
-\small
-::: columns
-::: column
+
 ```php
 <?php
 $var = 'Bob';
@@ -108,13 +106,7 @@ $_4site = 'not yet';
 
 // valid; 'ä' is (Extended) ASCII 228.
 $täyte = 'mansikka';
-?>
-```
-:::
-::: column
 
-```php
-<?php
 // Assign the value 'Bob' to $foo
 $foo = 'Bob';
 
@@ -129,9 +121,6 @@ echo $bar;
 echo $foo;
 ?>
 ```
-:::
-:::
-\normalsize
 
 ## PHP Data Types
 
@@ -147,10 +136,7 @@ PHP supports various data types, which can be categorized as follows:
 - **callable**: Represents a function that can be called.
 - **resource**: Represents a reference to an external resource, such as a file or a database connection.
 
-## PHP Variables Cont.
-\small
 ```php
-
 <?php
 // Unset AND unreferenced (no use context) variable;
 // outputs NULL
@@ -163,13 +149,7 @@ echo $unset_bool ? "true\n" : "false\n";
 // String usage; outputs 'string(3) "abc"'
 $unset_str .= 'abc';
 var_dump($unset_str);
-```
-\normalsize
 
-## PHP Variables Cont.
-
-\small
-```php
 // Integer usage; outputs 'int(25)'
 $unset_int += 25; // 0 + 25 => 25
 var_dump($unset_int);
@@ -187,13 +167,10 @@ $unset_obj->foo = 'bar';
 var_dump($unset_obj);
 ?>
 ```
-\normalsize
 
 ## Predefined PHP Variables
 
 PHP provides a range of predefined variables that are accessible in all scopes. These variables are known as superglobals and include:
-
-\small
 
 - **$GLOBALS**: References all variables available in the global scope.
 - **$\_SERVER**: Contains information about the server and execution environment.
@@ -208,8 +185,6 @@ PHP provides a range of predefined variables that are accessible in all scopes. 
 - **$http\_response\_header**: Contains HTTP response headers.
 - **$argc**: Contains the number of arguments passed to the script.
 - **$argv**: Contains an array of arguments passed to the script.
-
-\normalsize
 
 ## if else
 
@@ -226,8 +201,7 @@ if ($a > $b) {
 ```
 
 ## for loops
-::: columns
-::: column
+
 ```php
 <?php
 /*
@@ -242,10 +216,7 @@ $people = array(
 for($i = 0; $i < count($people); ++$i) {
     $people[$i]['salt'] = mt_rand(000000, 999999);
 }
-```
-:::
-::: column
-```php
+
 $arr = array(1, 2, 3, 4);
 foreach ($arr as &$value) {
     $value = $value * 2;
@@ -254,6 +225,345 @@ foreach ($arr as &$value) {
 unset($value); // break the reference with the last element
 ?>
 ```
-:::
-:::
-\normalsize
+
+Certainly! I'd be happy to add some slides about PHP arrays to your presentation. Here's how we can incorporate this information into your existing document:
+
+## PHP Arrays
+
+Arrays in PHP are versatile data structures that can hold multiple values under a single variable name.
+
+## Types of Arrays in PHP
+
+PHP supports three types of arrays:
+
+1. **Indexed Arrays**: Arrays with numeric keys
+2. **Associative Arrays**: Arrays with named keys
+3. **Multidimensional Arrays**: Arrays containing one or more arrays
+
+## Indexed Arrays
+
+```php
+<?php
+$fruits = array("Apple", "Banana", "Cherry");
+// or
+$fruits = ["Apple", "Banana", "Cherry"];
+
+echo $fruits[0]; // Outputs: Apple
+echo count($fruits); // Outputs: 3
+?>
+```
+
+## Associative Arrays
+
+```php
+<?php
+$age = array("Ali"=>35, "Omar"=>37, "Ahmed"=>43);
+// or
+$age = ["Ali"=>35, "Omar"=>37, "Ahmed"=>43];
+
+echo $age['Ali']; // Outputs: 35
+?>
+```
+
+## Multidimensional Arrays
+
+```php
+<?php
+$cars = array (
+  array("Volvo",22,18),
+  array("BMW",15,13),
+  array("Toyota",5,2)
+);
+
+echo $cars[0][0]; // Outputs: Volvo
+?>
+```
+
+## Array Functions
+
+PHP provides numerous built-in functions to work with arrays:
+
+- `array_push()`: Adds one or more elements to the end of an array
+- `array_pop()`: Removes the last element from an array
+- `array_shift()`: Removes the first element from an array
+- `array_unshift()`: Adds one or more elements to the beginning of an array
+- `sort()`: Sorts an array in ascending order
+- `rsort()`: Sorts an array in descending order
+- `array_merge()`: Merges one or more arrays
+
+## Example: Array Functions
+
+```php
+<?php
+$fruits = ["Apple", "Banana"];
+array_push($fruits, "Cherry");
+print_r($fruits);
+// Output: Array ( [0] => Apple [1] => Banana [2] => Cherry )
+
+$last = array_pop($fruits);
+echo $last; // Outputs: Cherry
+
+sort($fruits);
+print_r($fruits);
+// Output: Array ( [0] => Apple [1] => Banana )
+?>
+```
+# PHP Regular Expressions
+>***Note:*** Check [tutorial 3](https://github.com/ITCS333/slides/blob/main/pdf/tut3.pdf) for examples.
+
+## Basic Syntax:
+In PHP, regular expressions are typically enclosed in delimiters. The most common delimiters are forward slashes '/' or curly braces '{}' or pipes '|':
+
+```php
+$pattern = '/pattern/';
+$pattern = '{pattern}';
+$pattern = '|pattern|';
+```
+
+## Matching Functions:
+PHP provides several functions for working with regex:
+
+- preg_match(): Checks if a pattern matches a string
+- preg_match_all(): Finds all occurrences of a pattern in a string
+- preg_replace(): Replaces matches with a specified string
+- preg_split(): Splits a string by a regular expression
+
+>***Note:*** In this course only `preg_match()` is required. And you are expected to use it for input validation.
+
+## Simple Pattern Matching:
+
+```php
+$text = "Hello, World!";
+$pattern = '/Hello/';
+if (preg_match($pattern, $text)) {
+   echo "Match found!";
+}
+```
+
+## Character Classes:
+- `[abc]`: Matches any single character in the set
+- `[^abc]`: Matches any single character not in the set
+- `[a-z]`: Matches any single character in the range
+
+## Metacharacters:
+- `.` (dot): Matches any single character except newline
+- `\d`: Matches any digit (0-9)
+- `\w`: Matches any word character (a-z, A-Z, 0-9, _)
+- `\s`: Matches any whitespace character
+
+## Quantifiers:
+- `*`: Matches 0 or more occurrences
+- `+`: Matches 1 or more occurrences
+- `?`: Matches 0 or 1 occurrence
+- `{n}`: Matches exactly n occurrences
+- `{n,}`: Matches n or more occurrences
+- `{n,m}`: Matches between n and m occurrences
+
+## Anchors:
+- `^`: Matches the start of a string
+- `$`: Matches the end of a string
+
+## Modifiers:
+Add modifiers after the closing delimiter:
+- `i`: Case-insensitive matching
+- `m`: Multi-line mode
+- `s`: Dot matches newline
+
+```php
+$pattern = '/pattern/i'; // Case-insensitive
+```
+
+## Capturing Groups:
+Use parentheses () to create capturing groups:
+
+```php
+$text = "Omar Ali";
+$pattern = '/(\w+)\s(\w+)/';
+preg_match($pattern, $text, $matches);
+print_r($matches);
+```
+
+# Object-Oriented PHP
+## Classes
+```php
+<?php
+
+class MyClass {
+    public const MY_CONSTANT = 'constant value';
+
+    public $publicProperty;
+    protected $protectedProperty;
+    private $privateProperty;
+
+    public function __construct($publicValue, $protectedValue, $privateValue) {
+        $this->publicProperty = $publicValue;
+        $this->protectedProperty = $protectedValue;
+        $this->privateProperty = $privateValue;
+    }
+
+    public function myMethod() {
+        return $this->publicProperty;
+    }
+}
+
+$instance = new MyClass('public value', 'protected value', 'private value');
+echo $instance->publicProperty; // Outputs: public value
+echo $instance->myMethod(); // Outputs: public value
+echo MyClass::MY_CONSTANT; // Outputs: constant value
+?>
+```
+## Inheritance
+```php
+class BaseClass {
+    public $baseProperty;
+
+    public function __construct($value) {
+        $this->baseProperty = $value;
+    }
+
+    public function baseMethod() {
+        return $this->baseProperty;
+    }
+}
+
+class DerivedClass extends BaseClass {
+    public $derivedProperty;
+
+    public function __construct($baseValue, $derivedValue) {
+        parent::__construct($baseValue);
+        $this->derivedProperty = $derivedValue;
+    }
+
+    public function derivedMethod() {
+        return $this->derivedProperty;
+    }
+}
+?>
+```
+
+## Abstract Classes
+```php
+abstract class AbstractClass {
+    abstract protected function abstractMethod();
+
+    public function concreteMethod() {
+        return "This is a concrete method.";
+    }
+}
+
+class ConcreteClass extends AbstractClass {
+    protected function abstractMethod() {
+        return "This is an implementation of the abstract method.";
+    }
+}
+?>
+```
+
+## Interfaces
+```php
+interface MyInterface {
+    public function interfaceMethod();
+}
+
+class ImplementingClass implements MyInterface {
+    public function interfaceMethod() {
+        return "Implemented method";
+    }
+}
+?>
+```
+
+# Creating MySQL Databases
+
+## Using the Terminal
+To create a MySQL database from the terminal, follow these steps:
+
+1. **Open your terminal** and log in to the MySQL server:
+    ```sh
+    mysql -u root -p
+    ```
+    Enter your MySQL root password when prompted.
+
+2. **Create a new database**:
+    ```sql
+    CREATE DATABASE my_database;
+    ```
+    Replace `my_database` with your desired database name.
+
+3. **Verify the database creation**:
+    ```sql
+    SHOW DATABASES;
+    ```
+    You should see `my_database` listed among the databases.
+
+## Using phpMyAdmin
+To create a MySQL database using phpMyAdmin, follow these steps:
+
+1. **Log in to phpMyAdmin** using your web browser.
+
+2. **Click on the "Databases" tab** at the top of the page.
+
+3. **Enter the name of the new database** in the "Create database" field.
+
+4. **Select the collation** (optional) and click the "Create" button.
+
+Your new database should now appear in the list of databases.
+
+# PHP PDO
+PHP PDO (PHP Data Objects) is a lightweight, consistent interface for accessing databases in PHP. It's an abstraction layer that provides a uniform method of interaction with multiple databases. Some features of PDO:
+
+1. Database agnostic: PDO works with different database systems (MySQL, PostgreSQL, SQLite, etc.) using the same code.
+
+2. Prepared statements: It supports prepared statements, which help prevent SQL injection attacks.
+
+3. Error handling: PDO uses exceptions for error handling, making it easier to catch and manage database-related errors.
+
+4. Object-oriented: It provides an object-oriented interface for database operations.
+
+5. Security: PDO offers better security features compared to older MySQL extensions.
+
+6. Consistent API: It provides a consistent naming convention for all database functions.
+
+PDO is generally considered a more modern and secure way to interact with databases in PHP compared to older methods like the mysql_ functions.
+
+## Basic MySQL Database Connection
+```php
+<?php
+$pdo = new PDO("mysql:host=localhost;port=3307;dbname=testdb", 'my_user', 'my_password');
+
+$result = $pdo->query("SELECT email FROM user");
+foreach ($result as $row) {
+    echo $row['email'] . '<br>';
+}
+?>
+```
+
+## DSN
+A DSN, or Data Source Name, is a string that contains the information required to connect to a specific database. In the context of PDO (PHP Data Objects), the DSN is used to specify the database driver to use and provide the necessary details for establishing a connection. Here's a breakdown of what a DSN typically includes:
+
+1. Driver prefix: Indicates which PDO driver to use (e.g., mysql, pgsql, sqlite).
+2. Host: The server where the database is located.
+3. Port: The port number for the database server (if different from the default).
+4. Database name: The name of the specific database to connect to.
+5. Additional parameters: Can include charset, SSL settings, etc.
+
+The format of a DSN can vary slightly depending on the database driver being used. Here are a few examples:
+
+1. MySQL:
+   ```
+   mysql:host=localhost;dbname=mydatabase;charset=utf8mb4
+   ```
+2. PostgreSQL:
+   ```
+   pgsql:host=localhost;port=5432;dbname=mydatabase
+   ```
+3. SQLite:
+   ```
+   sqlite:/path/to/database.sqlite
+   ```
+
+When creating a PDO connection, the DSN is typically used as the first parameter in the PDO constructor:
+
+```php
+$pdo = new PDO($dsn, $username, $password);
+```
