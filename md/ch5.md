@@ -567,3 +567,112 @@ When creating a PDO connection, the DSN is typically used as the first parameter
 ```php
 $pdo = new PDO($dsn, $username, $password);
 ```
+
+# PDO Prepared Statements
+
+## Example 1
+This code prepares and executes a SQL query to select an email from the user table where the email matches the provided email address. This query can be used to check if an email already exists in a database:
+
+```php
+$sql = "SELECT email FROM user WHERE email = ?";
+$statement = $db->prepare($sql);
+$statement->execute([$email]);
+$user = $statement->fetch();
+```
+
+### SQL Query Preparation:
+```php
+$sql = "SELECT email FROM user WHERE email = ?";
+```
+
+- This line defines an SQL query to select the `email` field from the `user` table where the `email` matches a specific value.
+- The `?` is a placeholder for a parameter that will be bound later, which helps prevent SQL injection attacks.
+
+### Preparing the Statement:
+```php
+$statement = $db->prepare($sql);
+```
+
+- Here, the `$db->prepare($sql)` method prepares the SQL query for execution.
+`$db` is assumed to be a PDO (PHP Data Objects) instance, which provides a secure way to interact with the database.
+
+### Executing the Statement:
+```php
+$statement->execute([$email]);
+```
+
+- The `execute` method runs the prepared statement.
+- The array `[$email]` provides the value for the placeholder `?` in the SQL query. This binds the `$email` variable to the placeholder, ensuring safe and correct execution.
+
+### Fetching the Result:
+```php
+$user = $statement->fetch();
+```
+
+- The `fetch` method retrieves the next row from the result set.
+- In this case, it fetches the row where the `email` matches the provided `$email` value.
+- If a matching email is found, `$user` will contain the result. If no match is found, `$user` will be `false`.
+
+## Example 2
+This PHP code securely inserts a new user's email and hashed password into the `user` table in a database using prepared statements.
+
+```php
+$statement = $db->prepare("INSERT INTO user (email, password) VALUES (?, ?)");
+$statement->execute([$email, $hashed_password]);
+```
+
+### Prepare an SQL Statement:
+```php
+$statement = $db->prepare("INSERT INTO user (email, password) VALUES (?, ?)");
+```
+- This line prepares an SQL `INSERT` statement to add a new row to the `user` table with two columns: `email` and `password`.
+- The `?` placeholders are used for parameterized query execution, which helps prevent SQL injection.
+
+### Execute the Prepared Statement:
+```php
+$statement->execute([$email, $hashed_password]);
+```
+
+- This line executes the prepared statement with the provided parameters.
+- `$email` and `$hashed_password` are the actual values that will be inserted into the `email` and `password` columns of the `user` table, respectively.
+
+## Example 3
+This code prepares and executes a SQL query to fetch a user record from the user table based on the provided email. It then retrieves the result as an associative array. You can use this code to check if the user name and password are correct:
+
+```php
+$statement = $db->prepare("SELECT * FROM user WHERE email = :email");
+$statement->bindParam(':email', $email);
+$statement->execute();
+$user = $statement->fetch(PDO::FETCH_ASSOC);
+```
+
+### Prepare an SQL Statement:
+```php
+$statement = $db->prepare("SELECT * FROM user WHERE email = :email");
+```
+
+- `$db`: This variable represents a PDO (PHP Data Objects) instance, which is used to interact with the database.
+- `prepare()`: This method prepares an SQL statement for execution. The SQL query here is `SELECT * FROM user WHERE email = :email`.
+- `:email`: This is a named placeholder used in the SQL query. It will be replaced with the actual email value later.
+
+### Binding Paramters
+```php
+$statement->bindParam(':email', $email);
+```
+- `bindParam()`: This method binds a PHP variable to a named placeholder in the SQL statement. Here, the placeholder `:email` is bound to the PHP variable `$email`.
+- `$email`: This variable should contain the email address provided by the user attempting to log in.
+
+### Execute the Prepared Statement:
+```php
+$statement->execute();
+```
+
+- `execute()`: This method executes the prepared statement. At this point, the SQL query is sent to the database with the bound email value.
+
+### Fetching the Result:
+
+```php
+$user = $statement->fetch(PDO::FETCH_ASSOC);
+```
+- `fetch()`: This method retrieves the next row from the result set. The `PDO::FETCH_ASSOC` parameter specifies that the row should be returned as an associative array, where the column names are the keys.
+- `$user`: This variable will hold the fetched user data if a user with the provided email exists in the database. If no such user exists, `$user` will be `false`.
